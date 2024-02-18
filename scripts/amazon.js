@@ -79,10 +79,17 @@ let productHTML='';
                     productId:productId,
                     quantity:1
                 });
-
             }
-           
-            console.log(cart);
+
+            let cartQuantity = 0;
+
+            cart.forEach((item)=>{
+                cartQuantity += item.quantity;
+
+            });
+            document.querySelector('.js-cart').innerHTML=cartQuantity;
+            //console.log(cartQuantity); at end remove
+            //console.log(cart); at end remove
         });
 
     });
