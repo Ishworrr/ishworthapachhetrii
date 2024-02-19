@@ -3,13 +3,14 @@ import {products} from '../data/products.js';
 import {formatCurrency} from './utils/money.js';
 import {hello} from 'https://unpkg.com/supersimpledev@1.0.1/hello.esm.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
-hello();
 import {deliveryOptions} from '../data/deliveryOptions.js';
 
+hello();
 const today = dayjs();
 const deliveryDate=today.add(7,'days');
 console.log(deliveryDate.format('dddd, MMMM D'));
 
+function renderOrderSummary(){
 let cartSummaryHTML = '';
 
 
@@ -37,9 +38,9 @@ deliveryOptions.forEach((option)=>{
     deliveryOption = option;
   }
 });
-const today= dayjs();
-const deliveryDate = today.add(deliveryOption.deliveryDays,'days');
-const dateString = deliveryDate.format('ddd,MMMM D');
+    const today= dayjs();
+    const deliveryDate = today.add(deliveryOption.deliveryDays,'days');
+    const dateString = deliveryDate.format('dddd, MMMM D');  
 
 cartSummaryHTML += 
 
@@ -47,7 +48,7 @@ cartSummaryHTML +=
     <div class="cart-item-container
     js-cart-item-container-${matchingProduct.id}">
     <div class="delivery-date">
-      Delivery date: Tuesday, June 21
+      Delivery date: ${dateString}
     </div>
 
     <div class="cart-item-details-grid">
@@ -90,7 +91,7 @@ function deliveryOptionsHTML(matchingProduct, cartItem){
   deliveryOptions.forEach((deliveryOption)=>{
     const today= dayjs();
     const deliveryDate = today.add(deliveryOption.deliveryDays,'days');
-    const dateString = deliveryDate.format('ddd,MMMM D');
+    const dateString = deliveryDate.format('dddd, MMMM D');
     const priceString = deliveryOption.priceCents === 0
         ? 'FREE' //if price cents is 0 its free.
         : `$${formatCurrency(deliveryOption.priceCents)} - `; // we can omit -(dash) here for 4.99 -shipping and put dash here  ${priceString} - Shipping 
@@ -142,6 +143,9 @@ document.querySelectorAll('.js-delivery-option').forEach((element) =>{
     const{productId, deliveryOptionId}= element.dataset;
 
 updateDeliveryOption(productId, deliveryOptionId);
+renderOrderSummary();
   });
 });
+}
+renderOrderSummary();
 
