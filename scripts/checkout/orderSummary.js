@@ -1,14 +1,10 @@
 import {cart, removefromCart, updateDeliveryOption} from '../../data/cart.js';
-import {products} from '../../data/products.js';
+import {products, getProduct} from '../../data/products.js';
 import {formatCurrency} from '../utils/money.js';
 import {hello} from 'https://unpkg.com/supersimpledev@1.0.1/hello.esm.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
-import {deliveryOptions} from '../../data/deliveryOptions.js';
-
-hello();
-const today = dayjs();
-const deliveryDate=today.add(7,'days');
-console.log(deliveryDate.format('dddd, MMMM D'));
+import {deliveryOptions, getDeliveryOption} from '../../data/deliveryOptions.js';
+import {renderPaymentSummary} from './paymentSummary.js';
 
 export function renderOrderSummary(){
 let cartSummaryHTML = '';
@@ -17,27 +13,12 @@ let cartSummaryHTML = '';
 cart.forEach((cartItem)=>{
 const productId = cartItem.productId;
 
-let matchingProduct;
-
-
-
-products.forEach((product) => {
-if(product.id === productId){
-    matchingProduct = product;
-
-}
-
-});
+const matchingProduct = getProduct(productId);
 
 const deliveryOptionId = cartItem.deliveryOptionId;
 
-let deliveryOption;
+const deliveryOption= getDeliveryOption(deliveryOptionId);
 
-deliveryOptions.forEach((option)=>{
-  if(option.id === deliveryOptionId){
-    deliveryOption = option;
-  }
-});
     const today= dayjs();
     const deliveryDate = today.add(deliveryOption.deliveryDays,'days');
     const dateString = deliveryDate.format('dddd, MMMM D');  
@@ -121,8 +102,7 @@ function deliveryOptionsHTML(matchingProduct, cartItem){
   return html;
 }
 
-document.querySelector('.js-oder-summary')
-  .innerHTML = cartSummaryHTML;
+document.querySelector('.js-order-summary').innerHTML = cartSummaryHTML;
 
 document.querySelectorAll('.js-delete-link')
   .forEach((link) => {
@@ -134,6 +114,7 @@ document.querySelectorAll('.js-delete-link')
         `.js-cart-item-container-${productId}`
       );
       container.remove();
+      renderPaymentSummary();
 
     });
 });
@@ -144,6 +125,7 @@ document.querySelectorAll('.js-delivery-option').forEach((element) =>{
 
 updateDeliveryOption(productId, deliveryOptionId);
 renderOrderSummary();
+renderPaymentSummary();
   });
 });
 }
