@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blurred background</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+    body{
+        margin:0;
+    
+    }
+
+    .front{
+        display:flex;
+        justify-content:center;
+     align-items: center;
+     flex-direction: column;
+     text-align: center;
+     height: 100vh;
+     background: url('https://cdn.pixabay.com/photo/2016/05/05/02/37/sunset-1373171_1280.jpg');
+        background-repeat:no-repeat ;
+        background-size: cover;
+        transition:  all .7s ease-in-out;
+        opacity: 1;
+    
+        filter: blur(0.2px);
+
+    }
+
+    .front h1{
+        color:white;
+        font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        letter-spacing:14px;
+        text-shadow: 2px 4px 1px rgba(0,0,0,1);
+    }
+
+    .bt{
+        padding: 10px 20px;
+        width:300px;
+        border-radius: 30px;
+        background-color: yellowgreen;
+
+    }
+    .bt:hover{
+        filter:brightness(.7);
+        cursor:pointer;
+    }
+
+    .active{
+        filter:blur(2px) brightness(.8);
+     
+    }
+    .back{
+        position:fixed;
+        left:50%;
+        top:50%;
+        transform: translate(-50%,-50%);
+        width:400px;
+        height:200px;
+        border-radius:20px;
+        background-color:blanchedalmond;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding:30px;
+        background: url('heart.png');
+        background-size: cover;
+        box-shadow: 2px 4px 1px rgba(0,0,0,1);
+        opacity: 1;
+        transition:  all .6s ease-in-out;
+
+    }
+    .btn{
+        padding: 10px 20px;
+        border:2px solid;
+        background-color: yellowgreen;
+        cursor: pointer;
+
+    }
+    .email{
+        padding: 10px 20px;
+        border:2px solid;
+        text-align: center;
+      
+        cursor: pointer;
+
+    }
+    .email::placeholder{
+     color:lightgray;
+
+    }
+   .fa-3x{
+    position: absolute;
+    right:20px;
+    top:10%;
+
+
+   }
+   .fa-3x:hover{
+    color:red;
+
+   }
+   .active.back{
+    visibility: hidden;
+    opacity: 0;
+   }
+
+
+    </style>
+
+</head>
+
+<body>
+    <div class="front ">
+        <h1>Wlecome to our website</h1>
+        <button class="bt">click to join</button>
+    </div>
+    <div class="back active">
+        <h2>20% OFF Offer</h2>
+        <label>Ypur Email</label>
+        <input type="email" class="email" placeholder="Enter your email"/>
+        <button class="btn">Join</button>
+        <div class="font">
+        <i class="fa-solid fa-xmark fa-3x cross"></i>
+        </div>
+    </div>
+    <script>
+  const frontEl = document.querySelector('.front');
+  const backEl = document.querySelector('.back');
+  const crossEl = document.querySelector('.cross');
+  const btEl = document.querySelector('.bt');
+
+  btEl.addEventListener('click',()=>{
+    frontEl.classList.add('active');
+    backEl.classList.remove('active');
+  });
+
+  crossEl.addEventListener('click',()=>{
+    backEl.classList.add('active');
+    frontEl.classList.remove('active');
+  });
+
+
+
+           
+         
+        </script>
+</body>
+</html> 

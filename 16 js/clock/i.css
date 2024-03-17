@@ -1,0 +1,67 @@
+body{
+    margin:0;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    background: url("https://a.storyblok.com/f/178900/640x360/3eda992a38/901dd25d9e60329107667cf3fbd09fd51639933548_main.jpg/m/filters:quality(95)format(webp)");
+    background-repeat: no-repeat;
+    background-size:cover;
+    color: rgb(255, 255, 255);
+    overflow:hidden;
+
+}
+
+p{
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.clock{
+    display:flex;
+
+}
+
+.clock div{
+    margin:5px;
+
+}
+
+.clock span{
+    width:100px;
+    height:80px;
+    color:blue;
+    background-color: blanchedalmond;
+    opacity:.8 ;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 2px 2px 4px rgba(0,0,0, 0.4); 
+    font-size: 30px;
+}
+
+.clock .text{
+height: 30px;
+font-size: 15px;
+text-transform: uppercase;
+letter-spacing: 2px;
+background-color: darkgoldenrod ;
+opacity: 0.8;
+
+
+}
+
+.clock #ampm{
+bottom:285px;
+position: absolute;
+
+display: flex;
+width:60px;
+height:30px;
+font-size: 30px;
+background-color: aqua;
+
+}

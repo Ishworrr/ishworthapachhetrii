@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <title>random color generatot</title>
+    <style>
+        body{
+            margin:0;
+            font-family: 'cursive';
+        }
+        h1{
+            text-align: center;
+        }
+
+       .container {
+        display: flex;
+        flex-wrap: wrap;
+       }
+       
+       .colors{
+        
+        justify-content: center;
+            height:45px;
+            width:75px;
+            background-color: aliceblue;
+            margin:10px;
+            padding:50px;
+            border-radius: 20px;
+            text-align: center;
+            display:flex ;
+            align-items: center;
+            border:solid 2px;
+
+         }
+        </style>
+</head>
+<div>
+    <h1>Random Colors</h1>
+    <div class="container">
+       
+
+
+    </div>
+    </div>
+
+    <script>
+    const containerEl = document.querySelector('.container');
+   
+   
+
+    for (let index = 0; index < 30; index++) {
+        const colorEl = document.createElement('div');
+        colorEl.classList.add('colors');
+        containerEl.appendChild(colorEl);
+        
+    }
+    const colorEls = document.querySelectorAll('.colors');
+
+   code();
+ 
+    function code(){
+        colorEls.forEach((colorEl)=>{
+            const newCode = generateColor();
+            //csonsole.log(newCode);
+            //colorEl.style.backgroundColor=`#${newCode}`;
+            colorEl.style.backgroundColor='#' + newCode;
+            colorEl.innerText = '#' + newCode;
+        })
+        }
+
+        function generateColor() {
+      const char = '123456789abcdefg';
+      const colorLength = 6;
+      let colorCode='';
+
+      for (let index = 0; index < colorLength; index++) {
+        const random =  Math.floor(Math.random() * char.length);
+        colorCode +=char.substring(random,random+1);
+        //console.log(colorCode,random);
+      }
+      return colorCode;
+    
+    }
+
+
+
+        </script>
+<body>
+    
+</body>
+</html>

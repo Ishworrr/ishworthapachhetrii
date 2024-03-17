@@ -1,0 +1,90 @@
+body{
+    margin:0;
+   /* display:flex;
+    justify-content: center;
+    align-items:center;
+    height: 100vh;
+    flex-direction: column;
+    background-color: blanchedalmond;
+    position: absolute;*/
+}
+
+
+.top-container{
+background-image:url("https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?cs=srgb&dl=pexels-james-wheeler-417074.jpg&fm=jpg");
+height: 100vh;
+overflow: hidden;
+background-size:cover;
+display:flex;
+    justify-content: center;
+    align-items:center;
+    color:blanchedalmond;
+    font-family:"Cursive" ;
+    font-size: 29px;
+    
+}
+
+
+.top-container h2{
+   letter-spacing: 2px;
+   text-align: top-left;
+    }
+
+.text{
+    margin:30px 5%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.navbar{
+    display:flex;
+   flex-direction: row;
+   justify-content: space-between;
+   position :fixed;
+   width: 100%;
+   background-color: white;
+   box-shadow: 2px 4px 8px rgba(0,0,0,.3);
+   transition:background-color 1.9s;
+
+}
+/*.navbar ul{
+    display:flex;
+   flex-direction: row;
+   justify-content: space-between;
+   position: absolute;
+   right: 4%;
+   width: 300px;
+ 
+
+}
+
+.navbar a{
+    color:bisque;
+    text-decoration: none;
+}
+*/
+.navbar ul{
+    display:flex;
+   list-style-type:none;
+
+}
+.navbar ul li a{
+    color:black;
+    text-decoration: none;
+   margin: 10px;
+   font-family: cursive;
+ 
+
+}
+
+.navbar ul li a:hover{
+    color:red;
+
+}
+
+.navbar.active {
+    background-color: black;
+  }
+  
+  .navbar.active ul li a {
+    color: white;
+  }

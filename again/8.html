@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Trail</title>
+    <style>
+        body{
+            margin:0;
+            height:100vh;
+            background-color: black;
+
+        }
+
+        span{
+            background: url("heart.png");
+            height:100px;
+            width:100px;
+            pointer-events: none;
+            position: absolute;
+            background-size:cover;
+            transform: tarnslate(-50%,-50%);
+            top:50%;
+            left:50%;
+            animation:animate 6s linear;     
+        }
+
+        @keyframes animate { 
+            0%{
+                transform:translate(-50%,-50%);
+            }
+
+            100%{
+                transform:translate(-50%,-5000%);
+                filter: hue-rotate(360deg);
+                opacity: 0;
+
+            }
+        }
+        </style>
+</head>
+<body>
+    <span></span>
+    
+    <script>
+        const bodyEl = document.querySelector('body');
+    
+            bodyEl.addEventListener('mousemove',(event)=>{
+                const xpos = event.offsetX;
+                const ypos = event.offsetY;
+                const spanEl=document.createElement('span');
+        
+                spanEl.style.left=xpos+'px';
+                spanEl.style.top=ypos+'px';
+                bodyEl.appendChild(spanEl);
+                const font = Math.random()*250;
+                spanEl.style.width=font + 'px';
+                spanEl.style.height=font + 'px';
+                
+    
+                setTimeout(() => {
+                    spanEl.remove();
+                }, 3000);
+            })
+            </script>
+    
+</body>
+
+</html>

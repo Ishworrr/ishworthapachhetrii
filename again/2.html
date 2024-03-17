@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication App</title>
+</head>
+<style>
+    body{
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: yellow;
+    }
+    .div{
+        border: 1px solid;
+        border-radius: 20px;
+        text-align:center;
+        padding: 60px;
+        background-color: antiquewhite;
+        box-shadow: 0 4px 8px rgba(0,0,0, 0.6);
+        margin:10px; 
+    }
+
+    .score{
+       text-align: right;
+        top: 10px;
+        right: 10px;
+    }
+    .b{
+        background-color: green;
+color: white;
+border: none;
+display: block;
+width:100%;
+
+padding: 10px;
+font-family: cursive;
+font-size: 20px;
+margin: 20px 0;
+box-shadow: 0 4px 8px rgba(0,0,0, 0.6);
+cursor:pointer;
+display:flex;
+justify-content:space-evenly;
+align-items: center;
+
+    }
+
+    .i{
+        font-size: 30px;
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+        flex-direction: column;
+    }
+    .i::placeholder{
+        color:aquamarine;
+
+    }
+    .b:hover{
+        filter: blur(0.2px) brightness(.9);
+        font-size: 25px;
+
+    }
+    </style>
+<body>
+    <div class="div"  id="form">
+        <form >
+        <h4 class="score" id="score">score : 0</h4>
+        <h1 class="h1" id="question">What is 1 multiply 1?</h1>
+        <input class="i" id="input" type="text" placeholder="Enter your answer" autofocus/>
+        <button class="b" type="submit">Submit</button>
+   </form>
+    </div>
+
+    <script>
+
+        const num1 = Math.ceil(Math.random() * 10);
+const num2 = Math.ceil(Math.random() * 10);
+
+const questionEl = document.getElementById("question");
+
+const inputEl = document.getElementById("input");
+
+const formEl = document.getElementById("form");
+
+const scoreEl = document.getElementById("score");
+
+let score = JSON.parse(localStorage.getItem("score"));
+
+if (!score) {
+  score = 0;
+}
+
+scoreEl.innerText = `score: ${score}`;
+
+questionEl.innerText = `What is ${num1} multiply by ${num2}?`;
+
+const correctAns = num1 * num2;
+
+formEl.addEventListener("submit", () => {
+  const userAns = +inputEl.value;
+  if (userAns === correctAns) {
+    score++;
+    updateLocalStorage();
+  } else {
+    score--;
+    updateLocalStorage();
+  }
+});
+
+function updateLocalStorage() {
+  localStorage.setItem("score", JSON.stringify(score));
+}
+        </script>
+</body>
+</html>

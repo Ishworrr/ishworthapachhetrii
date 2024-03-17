@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto TExt Effecr Animation</title>
+   
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Micro+5&display=swap');
+    body{
+        margin:0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: bisque;
+        font-family:'Micro 5';
+    }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="main">
+  
+        </div>
+    
+    <script>
+    const mainEl= document.querySelector('.main');
+    const array=['Web Developer','Engineer','Gamer','Researcher','Curious','Billionaire'];
+    
+    let arrayIndex=0;
+    let charIndex=0;
+    effectT();
+
+    function effectT(){ 
+        charIndex++;
+    mainEl.innerHTML=`
+    <h1>I am ${array[arrayIndex].slice(0,1)===('I','E') ? 'an' : 'a'} ${array[arrayIndex].slice(0,charIndex)}.</h1>
+    `;
+   
+    if(charIndex===array[arrayIndex].length){
+        arrayIndex++;
+        charIndex=0;
+    };
+setTimeout(effectT, 200);
+
+}
+
+        </script>
+    
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Photos</title>
+    <style>
+        body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: brown;
+  }
+  .imager{
+    text-align: center;
+  }
+  .imager img {
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    background-color: lightgray;
+    min-width: 300px;
+    height: 300px;
+  }
+  .btn{
+    padding: 10px 20px;
+    border: none;
+    background-color: slateblue;
+    border-radius: 10px;
+    margin:20px;
+    cursor: pointer;
+    box-shadow: 2px 4px 10px rgba(255, 25, 0, 0.9);
+    color: aliceblue;
+    
+  }
+  .btn:hover{
+   opacity:0.8;
+  }
+  .btn:active{
+    opacity:0.2;
+   }
+
+
+        </style>
+  </head>
+  <body>
+    <div class="imager">
+      <img src="https://picsum.photos/300?random=1" />
+      <img src="https://picsum.photos/300?random=2" />
+      <img src="https://picsum.photos/300?random=3" />
+      <img src="https://picsum.photos/300?random=4" />
+      <img src="https://picsum.photos/300?random=5" />
+      <img src="https://picsum.photos/300?random=6" />
+    </div>=
+    <button class="btn">Load More</button>
+
+    <script>
+        const imgs = document.querySelector(".imager");
+
+   const btns = document.querySelector(".btn");
+
+    btns.addEventListener("click", () => {
+    num=10;
+    for (let index = 0; index <= num; index++) {
+      const imgr= document.createElement('img');
+     imgr.src = `https://picsum.photos/300?random=${Math.floor(
+      Math.random() * 2000
+    )}`;   
+     imgs.appendChild(imgr);  
+  }
+    
+    });
+        
+       
+    </script>
+  </body>
+</html>

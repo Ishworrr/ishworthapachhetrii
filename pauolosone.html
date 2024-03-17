@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Live Streaming</title>
+</head>
+<body>
+
+    <h2>How to build a video livestream in your web app with javascript & HTML 5</h2>
+    <video autoplay="" id="stream-elem" controls width="600" height="400">
+        <source src="" type=""  >
+    </video>
+   
+   
+
+    <button id="start-stream">Start Stream</button>
+    <button id="stop-media">Stop Stream</button>
+
+
+    
+    <!--<script src="build/index.js"></script>-->
+    <script>
+        const  streamElem = document.querySelector('#stream-elem');
+        const startStreamBtn = document.querySelector('#start-stream');
+        const stopMediaBtn = document.querySelector("#stop-media");
+
+        const settings = {
+            audio:true,
+            video:true
+        }
+        let recorder;
+       
+
+        startStreamBtn.addEventListener('click',function(e){
+
+        navigator.mediaDevices.getUserMedia(settings).then((stream)=>{
+            console.log(stream);
+            streamElem.srcObject = stream;
+
+            recorder=new MediaRecorder(stream);
+            console.log(recorder);
+            recorder.start();
+
+            const blob = [];
+
+            recorder.ondataavailable=function(e){
+               
+                console.log(e.data);
+                blob.push(e.data);
+
+            }
+
+            recorder.onerror=function(e){
+              //  return console.log("Error while recording", e)
+              return console.log( e.error || new Error(e.name))
+            }
+            recorder.onstop=function(e){
+                console.log(new Blob(blob));
+              console.log(window.URL.createObjectURL(new Blob(blob)));
+              const newVideoEl = document.createElement('video');
+              newVideoEl.height='400';
+              newVideoEl.controls=true;
+              newVideoEl.innerHTML=`<source src="${window.URL.createObjectURL(new Blob(blob))}" type="video/mp4">`
+              newVideoEl.autoplay=true;
+              newVideoEl.muted=false;
+              newVideoEl.width='600';
+
+              document.body.removeChild(streamElem);
+              document.body.prepend(newVideoEl);
+
+
+                    let formdata = new FormData();
+                    formdata.append('blobs',new Blob(blob));
+
+
+              fetch('/build/uploader.php',{
+                method:'POST',
+                body:formdata
+
+              //}).then((res)=>res.json()).then(()=>{
+            }).then(()=>{
+                alert('Video uploasded!')
+
+
+              })
+
+
+
+            }
+
+          
+
+            
+        })
+
+        })
+
+        stopMediaBtn.addEventListener('click',function(e){
+           
+            streamElem.pause();
+            recorder.stop();
+
+            })
+
+            /* form.onsubmit((event)=>{
+                form.onsubmit = (event)=>{
+                event.preventDefault();
+                if(seconf.value==='')
+                alert('nothing in sevonf');
+            return
+            })
+            console.log('formsubmitted') */
+
+         btn.onclick=()=>{
+
+         }
+         document.cl
+    
+
+           
+
+    </script>
+</body>
+</html>
+

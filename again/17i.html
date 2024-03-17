@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ <style>
+    body{
+        margin:0;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   background-color: #FFF7F1;
+    }
+    img{
+        width:100%;
+        object-fit: cover;
+        display: block;
+      margin-bottom: 3rem; ;
+        border-radius: 10px;
+        height: 30rem;
+    }
+    .main{
+        max-width: 1200px;
+        min-width:350px;
+        margin:0 auto;
+        width:90vw;
+        
+        padding: 4rem 0;
+    }
+.tab{
+    background-color: #FFE4C9;
+    border-radius: 8px;
+    display: grid;
+    grid-template-rows:auto 1fr;
+
+}
+.btn{
+    background-color: #E78895;
+    cursor: pointer;
+    transition: all .3s linear;
+    font-size: 1rem;
+    letter-spacing: 0.25rem;
+    border: none;
+    padding: 1rem 0;;
+    
+
+}
+.btnC{
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr;
+
+}
+.btn{
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.btn:hover:not(.a){
+    color:aliceblue;
+    background-color:rgb(247, 193, 126) ;
+    font-size: 120%;
+
+}
+.text{
+    padding:32px 24px;
+}
+
+@media (min-width:600px) {
+    .image{
+        margin: 0;
+    }
+    .main{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+       column-gap:2rem;
+    }
+}
+.words{
+    display: none;
+}
+.words.a{
+    display: block;
+}
+.btn.a{
+    background:#FFE4C9;
+}
+</style>
+</head>
+<body>
+<div class="main">
+    <div class="image">
+<img src="https://encrypted-tbn0.
+gstatic.com/images?q=tbn:ANd9GcSxlT_-PpQJbt3DsWOZDQYohRy
+4YF8ck1n8PA&usqp=CAU">
+</div>
+<div class="tab">
+    <div class="btnC">
+    <button class="btn a" data-id="aa">Tab 1</button>
+    <button class="btn" data-id="bb">Tab 2</button>
+    <button class="btn" data-id="cc">Tab 3</button>
+</div>
+  
+<div class="text">
+    <div class="words" id="aa">
+    <h2>Tab 1</h2>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem voluptatibus in eaque, culpa consectetur sit officia voluptatum praesentium magnam reiciendis dolor veritatis quibusdam voluptate, sequi esse amet officiis. Earum placeat nisi quidem illo non, facilis hic laborum, exercitationem odit tenetur assumenda minima excepturi similique ea? Facere officia sunt animi a sapiente, iure temporibus aliquam similique obcaecati dolores natus expedita omnis excepturi eligendi at libero placeat doloremque debitis commodi. Cupiditate, deleniti necessitatibus. Placeat incidunt doloremque dolorum a repellat provident dolor quos sint porro illum. Obcaecati delectus quod sequi, pariatur iste corrupti labore quisquam exercitationem accusantium quibusdam dicta error vero accusamus quam.</p>
+        </div>
+        <div class="words" id="bb">
+            <h2>Tab 2</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem voluptatibus in eaque, culpa consectetur sit officia voluptatum praesentium magnam reiciendis dolor veritatis quibusdam voluptate, sequi esse amet officiis. Earum placeat nisi quidem illo non, facilis hic laborum, exercitationem odit tenetur assumenda minima excepturi similique ea? Facere officia sunt animi a sapiente, iure temporibus aliquam similique obcaecati dolores natus expedita omnis excepturi eligendi at libero placeat doloremque debitis commodi. Cupiditate, deleniti necessitatibus. Placeat incidunt doloremque dolorum a repellat provident dolor quos sint porro illum. Obcaecati delectus quod sequi, pariatur iste corrupti labore quisquam exercitationem accusantium quibusdam dicta error vero accusamus quam.</p>
+                </div>
+                <div class="words" id="cc">
+                    <h2>Tab 3</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem voluptatibus in eaque, culpa consectetur sit officia voluptatum praesentium magnam reiciendis dolor veritatis quibusdam voluptate, sequi esse amet officiis. Earum placeat nisi quidem illo non, facilis hic laborum, exercitationem odit tenetur assumenda minima excepturi similique ea? Facere officia sunt animi a sapiente, iure temporibus aliquam similique obcaecati dolores natus expedita omnis excepturi eligendi at libero placeat doloremque debitis commodi. Cupiditate, deleniti necessitatibus. Placeat incidunt doloremque dolorum a repellat provident dolor quos sint porro illum. Obcaecati delectus quod sequi, pariatur iste corrupti labore quisquam exercitationem accusantium quibusdam dicta error vero accusamus quam.</p>
+                        </div>
+
+
+    </div>
+  
+</div>
+</div>
+    
+    
+    <script>
+const textEl = document.querySelector(".text");
+const tabEl = document.querySelector(".tab");
+const wordsEl = document.querySelectorAll(".words");
+const btnEl = document.querySelectorAll(".btn");
+
+tabEl.addEventListener('click',(e)=>{
+    const id=e.target.dataset.id;
+    if(id){
+        btnEl.forEach((btn) => {
+            btn.classList.remove('a');          
+        });
+
+    e.target.classList.add('a');
+
+    wordsEl.forEach((word)=>{
+        word.classList.remove('a');    
+    });
+
+    const element = document.getElementById(id);
+    element.classList.add('a');
+
+    }
+
+});
+        </script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital CLock</title>
+    <style>
+    body{
+        margin:0;
+        background:url('https://media.istockphoto.com/id/517188688/photo/mountain-landscape.jpg?s=612x612&w=0&k=20&c=A63koPKaCyIwQWOTFBRWXj_PwCrR4cEoOw2S9Q7yVl8=');
+        background-repeat: no-repeat;
+        height:100vh;
+        width:100%;
+        background-size:cover;
+        display: flex;
+        justify-content:center;
+        align-items:center;
+        flex-direction: column;
+        overflow: hidden;
+    
+    }
+   .a p{
+        margin:0;
+        display:flex;
+        color:brown;
+        width: 100px;
+        height: 80px;
+        justify-content:center;
+        align-items:center;
+        opacity: 0.8;
+        font-size: 50px;
+   
+        color: black;
+       
+       }
+       
+       .a .text{
+        background-color: aqua;
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+
+       }
+
+       .a .ampm{
+  
+            position: absolute;
+            right:50px;
+            top:470px;
+            text-transform: uppercase;
+
+            display: flex;
+            width:80px;
+            height:50px;
+            font-size: 30px;
+            background-color: aqua;
+    
+}
+    
+
+    .a{
+        display: flex;
+    }
+    
+    .a div{
+     
+        margin:0 20px;
+    
+        text-transform: capitalize;
+        background-color: bisque;
+       
+      
+}
+
+h1{
+                margin:0;
+            /*  transform:translate(10%,-200%);  */
+            
+            text-align: center;
+                letter-spacing: 2px;
+                    align-items:center;
+                    margin-bottom: 40px;
+
+}
+
+
+
+        </style>
+</head>
+<body>
+    <h1> Digital Clock</h1>
+    <div class="a">
+    <div>        
+<p class="hours">00<p>
+    <p class="text">Hours</p>
+</div>
+
+<div>
+    <p class="minutes">00<p>
+        <p class="text" >Minutes</p>
+    </div>
+
+    <div>
+        <p class="seconds">00<p>
+            <p class="text">Seconds</p>
+        </div>
+        <div>
+            <p class="miliseconds">00<p>
+                <p class="text">Miliseconds</p>
+            </div>
+
+            <p class="ampm">Am<p>
+                
+                </div>
+             
+
+    <script>
+        const hoursEl = document.querySelector('.hours');
+        const minutesEl = document.querySelector('.minutes');
+        const secondsEl = document.querySelector(".seconds");
+        const milisecondsEl=document.querySelector(".miliseconds");
+        const ampmEl = document.querySelector('.ampm');
+
+       function clock() {
+        let h= new Date().getHours();
+        let m= new Date().getMinutes();
+        let s= new Date().getSeconds();
+        let ms=new Date().getMilliseconds();
+        let ampm= "AM";
+
+        if(h>12){
+            h = h-12;
+           
+            ampm='PM';
+        }
+
+        h= h<10 ? '0'+h : h;
+        m= m<10 ? '0'+m : m;
+        s= s<10 ? '0'+s : s;
+        ms= ms<10 ? '0'+ms : ms;
+
+     hoursEl.innerHTML = h;
+     minutesEl.innerText = m;
+     secondsEl.innerText = s;
+     milisecondsEl.innerHTML = ms;
+     ampmEl.innerText=ampm;
+
+ 
+     setTimeout(() => {
+        clock();
+        
+     });
+        
+}
+clock();
+
+
+
+        </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   <meta content="IE-edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .check{
+       background-color: aqua;
+       visibility: hidden;
+
+
+        }
+
+        .label{
+            width:80px;
+            position: absolute;
+            height:40px;
+            background-color: lightgray;
+            cursor: pointer;
+            border-radius: 20px;
+        }
+        .circle{
+            width:35px;
+            height:35px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            top:2px;
+            left:2px;
+            animation:moveOff .4s linear forwards;
+          
+        }
+        .check:checked + .label{
+            background-color:white;
+        }
+
+        .check:checked + .label .circle{
+           animation:moveOn .4s linear forwards;
+           background-color: black;;
+        }
+
+      
+        
+
+
+      @keyframes moveOn{
+        0%{
+            transform: translateX(0);
+        }
+       100%{
+            transform: translateX(39px);
+        }
+      }
+      @keyframes moveOff{
+        0%{
+            transform: translateX(39px);
+        }
+       100%{
+            transform: translateX(0);
+        }
+      }
+      
+
+
+    </style>    
+</head>
+<body>
+
+    <input type="checkbox" id="a" class="check"/>
+    <label class="label" for="a">
+    <div class="circle"></div>
+</label>
+<script>
+const checkEl= document.querySelector('.check');
+const bodyEl = document.querySelector('body');
+ 
+checkEl.checked = JSON.parse(localStorage.getItem('new'));
+deep();
+
+function deep()
+{if(checkEl.checked){
+    bodyEl.style.background='black';
+
+}else{
+    bodyEl.style.background='white';
+}
+}
+checkEl.addEventListener('input',()=>{
+deep();
+local();
+})
+
+function local(){
+    localStorage.setItem('new',JSON.stringify(checkEl.checked));
+}
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+           body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+  text-align: center;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+.main{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
+    
+}
+h1{
+    font-size: 100px;
+    color:azure;
+    letter-spacing: 4px;
+    backdrop-filter: brightness(.5);
+
+}
+.btn{
+    width:120px;
+    padding:20px;
+    font-size: 20px;
+    text-wrap: nowrap;
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    border: 2px solid wheat;
+    box-shadow: 2px 4px 8px rgba(0,0,0,.6);
+
+}
+.btn:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+.samsung{
+    width:50%;
+    height: 100%;
+    overflow: hidden;
+    background: url('https://www.jbhifi.com.au/cdn/shop/products/672260-Product-0-I-638414680802669524_498a842c-c2e5-4ce9-8adf-ec8fea4662f0.jpg?v=1707282501');
+    background-size: cover;
+    background-color: bisque;
+
+}
+.iphone{
+    width:50%;
+    height: 100%;
+    overflow: hidden;
+    background: url('https://www.jbhifi.com.au/cdn/shop/products/639221-Product-0-I-638301471008047013.jpg?v=1698811958');
+    background-size: cover;
+    
+}
+.a .samsung{
+    width:25%;
+}
+.a .iphone{
+    width:75%;
+}
+.b .samsung{
+    width:75%;
+}
+.b .iphone{
+    width:25%;
+}
+    
+        </style>
+</head>
+<body>
+    <div class="main">
+    <div class="samsung phone">
+        <h1>Samsung</h1>
+      <!--  <img src="https://www.jbhifi.com.au/cdn/shop/products/672260-Product-0-I-638414680802669524_498a842c-c2e5-4ce9-8adf-ec8fea4662f0.jpg?v=1707282501">-->
+        <button class="btn">Buy Now</button>
+        </div>
+
+        <div class="iphone phone">
+            <h1>Apple</h1>
+          <!--  <img src="https://www.jbhifi.com.au/cdn/shop/products/639221-Product-0-I-638301471008047013.jpg?v=1698811958"> -->
+            <button class="btn">Buy Now</button>
+            </div>
+            </div>
+
+    <script>
+        const mainEl = document.querySelector('.main');
+        const btnEl = document.querySelector('.btn');
+        const leftEl = document.querySelector('.samsung');
+        const rightEl = document.querySelector('.iphone');
+
+        leftEl.addEventListener('mouseenter',()=>{
+           mainEl.classList.add('a');
+        })
+        leftEl.addEventListener('mouseleave',()=>{
+    mainEl.classList.remove('a');
+   })
+   rightEl.addEventListener('mouseenter',()=>{
+    mainEl.classList.add('b');
+   })
+   rightEl.addEventListener('mouseleave',()=>{
+    mainEl.classList.remove('b');
+   })
+        </script>
+    
+</body>
+
+</html>

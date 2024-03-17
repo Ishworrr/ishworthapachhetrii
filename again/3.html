@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUttoon Ripple</title>
+    <style>
+        body{
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: aliceblue;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .btn{
+            text-decoration: none;
+            padding: 20px 40px;
+            border: 2px solid;
+            border-radius: 5px;
+            background-color: bisque;
+            box-shadow: 2px 4px 8px rgba(0,0,0,.3);
+            color: black;  
+            overflow: hidden;
+            position: relative;
+            
+   
+        }
+        .btn::before{
+            background-color: rgb(20, 163, 163);
+            width:20px;
+            height: 20px;
+            position: absolute;
+            content: "";
+            left:var(--x);
+            top:var(--y);
+            transform:translate(-50%,-50%);
+            border-radius: 50%;
+            transition: width 0.5s, height 0.2s;
+           
+   }
+      .btn:hover::before{
+        width:300px;
+        height:300px;
+      
+      }
+
+      .btn span{
+        z-index: 1;
+        position: relative;
+      
+      }
+
+
+
+        
+        </style>
+</head>
+<body>
+    
+    <a href ="#" class="btn"><span>Button</span></a>
+
+
+        <script>
+            const btnEl = document.querySelector('.btn');
+             btnEl.addEventListener('mouseover',(e)=>{
+                const x = e.pageX - btnEl.offsetLeft;
+                const y = e.pageX - btnEl.offsetTop;
+
+                btnEl.style.setProperty("--x",`${x}px`);
+                btnEl.style.setProperty("--y",`${y}px`);
+             });
+
+
+        </script>
+</body>
+</html>

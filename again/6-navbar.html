@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navbar project</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
+    <style>
+        body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: #f1f5f8;
+  line-height: 2.2;
+  font-size: 0.875rem;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav {
+  background: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.fa-bars {
+  font-size: 1.5rem;
+  color: #e94949;
+  cursor: pointer;
+}
+
+.fa-bars:hover {
+  color: black;
+}
+
+.menu a {
+  color: grey;
+  letter-spacing: 0.1rem;
+  display: flex;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s linear;
+}
+
+.menu a:hover {
+  background: #f8a5a5;
+  color: #e94949;
+  padding-left: 1.5rem;
+}
+
+.menu {
+  height: 0;
+  overflow: hidden;
+  transition: all 0.3s linear;
+}
+
+.show-menu {
+  height: 10rem;
+}
+
+.nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+@media (min-width: 800px) {
+  .nav-main {
+    max-width: 1170px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
+  .nav-header {
+    padding: 0;
+  }
+  .fa-bars {
+    display: none;
+  }
+
+  .menu {
+    height: auto;
+    display: flex;
+  }
+
+  .menu a {
+    padding: 0;
+    margin: 0 0.5rem;
+  }
+  .menu a:hover {
+    padding: 0;
+    background: transparent;
+  }
+}
+
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-main">
+        <div class="nav-header">
+          <img src="downloadcopy.svg" alt="logo" />
+          <i class="fa fa-bars" aria-hidden="true"></i>
+        </div>
+        <ul class="menu">
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <a href="#">About</a>
+          </li>
+          <li>
+            <a href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <script>
+        const bar = document.querySelector(".fa-bars");
+const menu = document.querySelector(".menu");
+
+bar.addEventListener("click", () => {
+  menu.classList.add("show-menu");
+});
+    </script>
+  </body>
+</html>

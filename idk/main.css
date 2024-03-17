@@ -1,0 +1,14 @@
+/* @import a font from google fonts */
+:root {
+  --background-img: var('');
+  /* so you can display avatars as background images */
+}
+html {
+}
+body {
+}
+.cards {
+}
+.card {
+  background-image: var(--background-img);
+}

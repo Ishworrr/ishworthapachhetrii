@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+          body{
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            justify-content: center;
+            font-family: sans-serif;
+            background:linear-gradient(135deg, purple 20%, orange 80%);
+        }
+        .main{
+            width:300px;
+            border-radius: 10px;
+           border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,.1);
+            background-color: aqua;
+           display: flex;
+  align-items: center;
+  justify-content: space-between;
+ cursor: pointer;
+        }
+
+       .main p{
+          color: rgb(34, 104, 165);
+         font-size: 20px;
+          font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+          display: flex;
+          margin:10px 10px;
+   
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          
+
+        }
+
+        .rotate .a{
+            transform: rotate(180deg);
+        }
+
+       .rest{
+        margin: 0;
+      box-sizing: border-box;
+       width:320px;
+        border-radius: 10px;
+        box-shadow: 2px 4px 10px rgba(0,0,0,.1);
+        opacity:0.5;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+     
+        background-color: antiquewhite;
+        padding: 10px;
+       
+
+       }
+       .all {
+        list-style-type: none ;
+        box-sizing: border-box;
+        cursor: pointer;
+            width:100%;
+       
+       
+
+       }
+       .all li{
+            cursor: pointer;
+            display: flex;
+           
+          
+            font-family: 'Times New Roman', Times, serif;
+            margin: 30px -30px;
+
+
+       }
+       .all li:hover{
+        cursor: pointer;
+         background-color: lightgray;
+         border-radius: 5px;
+         padding-left:1px;
+         font-family:cursive;
+         width:100%;
+         padding:15px 0;
+       
+
+       }
+
+       .all p{
+        margin: 0 10px;
+        font-size: 20px;
+        text-wrap: nowrap;  
+
+       }
+       
+       .icon{
+            margin:3px 10px 2px 10px;
+
+        }
+        .hide{
+            visibility: hidden;
+            opacity: 1;
+        }
+       
+
+
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="main rotate">
+        <p>Social Media</p>
+        <i class="fa-angle-down fas a"></i>
+        
+    </div>
+    <div class="rest hide">
+        <ul class="all">
+            
+                <li>
+                    <i class="fa-brands fa-facebook icon" style="color:blue"></i>
+                    <p>Facebook</p>
+                </li>
+                <li>
+                    <i class="fa-brands fa-facebook-messenger icon" style="color:blue"></i>
+                    <p> Facebook Messenger</p>
+                </li>
+                <li>
+                    <i class="fa-brands fa-youtube icon" style="color:red"></i>    
+                    <p>Youtube</p>
+                </li>
+                <li>
+                    <i class="fa-brands fa-instagram icon" style="color:rgb(240, 157, 171)"></i>    
+                    <p>Instagram</p>
+                </li>
+
+        </ul>
+
+        </div>
+        <script>
+            const mainEl = document.querySelector('.main');
+            const ulEl= document.querySelector(".all");
+            const mainP= document.querySelector(".main p");
+            const listEls= document.querySelectorAll(".all li");
+            const aEl = document.querySelector('.a');
+            const restEl = document.querySelector('.rest');
+
+
+            aEl.addEventListener('click',()=>{
+                restEl.classList.toggle('hide');
+                aEl.classList.toggle("a");
+            })
+
+            listEls.forEach((li)=>{
+                li.addEventListener('click',()=>{
+                    mainP.innerHTML = li.innerHTML;
+                    listEls.classList.add('hide');
+                    mainEl.classList.toggle("a");
+
+                })
+
+
+            })
+
+
+         
+            </script>
+    
+</body>
+</html>

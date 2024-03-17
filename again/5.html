@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body{
+        margin: 0;
+        justify-content: center;
+        align-items: center;
+    }
+    .head-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: aliceblue;
+        position: fixed;
+        width: 100%;
+   box-shadow: 2px 4px 8px rgba(0,0,0,0.8);
+    }
+    .head-container ul{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+      
+        
+    }
+
+    .head-container ul li{
+     margin-left: 30px;
+     text-decoration: none;  
+     list-style-type:georgian;   
+   
+    }
+
+    .head-container ul li a{
+     
+     text-decoration: none;    
+    
+    }
+
+    .head-container ul li a:hover{
+        color:peachpuff;
+     font-size: 120%;
+     text-decoration:line-through;     
+    }
+
+    .head-container.active{
+        background-color: aqua;
+    }
+    .head-container.active ul li a{ 
+        color:chocolate;
+       
+       list-style-type: armenian;
+    }
+    .head-container.active ul li a:hover{ 
+     font-size: 190%;
+    }
+
+    .head-container.active ul li { 
+     
+        text-decoration:underline;
+       list-style-type: armenian;
+    }
+   
+
+    .middle-container{
+        background-image: url("https://www.shutterstock.com/image-photo/pinkish-colourful-sunrise-over-sydney-260nw-1094901527.jpg");
+        width:100%;
+        height:100vh;
+        background-repeat: no-repeat;
+        background-size: cover;
+        overflow: hidden;
+        display:flex;
+    justify-content: center;
+    align-items:center;
+    color: whitesmoke;
+
+    }
+    .middle-container h2{
+        font-size: 25px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      letter-spacing: 3px;
+      background-color: black;
+      border-radius:30%;
+      border: none;;
+    
+    }
+    .text{
+        margin:30px 5%;
+    }
+
+
+        </style>
+</head>
+
+<body>
+<div class="head-container">
+   <div class="image">
+    <img src="downloadcopy.svg"/>
+    </div> 
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+
+    <div class="middle-container">
+        
+        <h2>My Website</h2>
+         </div>
+
+    <div class="container">
+    <p class="text">
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere voluptates minima velit blanditiis commodi esse corporis porro accusamus alias amet! Vel temporibus id sed similique rerum laborum iste dolore iusto accusantium beatae ex recusandae eum totam corrupti vero consequatur itaque, tempora minus eligendi tempore illo nobis voluptate. Necessitatibus eligendi porro nisi accusantium velit assumenda debitis id voluptatibus vitae dolorem cupiditate mollitia corporis exercitationem adipisci numquam, doloremque voluptas unde natus minima. Aliquid vel provident nulla repellendus ullam architecto, non reprehenderit libero perspiciatis nostrum, quidem illo quam est optio eveniet officiis. Dolor ab ducimus officiis. Eos vero eligendi doloremque qui porro? Explicabo.
+    </p>
+    <p class="text">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere voluptates minima velit blanditiis commodi esse corporis porro accusamus alias amet! Vel temporibus id sed similique rerum laborum iste dolore iusto accusantium beatae ex recusandae eum totam corrupti vero consequatur itaque, tempora minus eligendi tempore illo nobis voluptate. Necessitatibus eligendi porro nisi accusantium velit assumenda debitis id voluptatibus vitae dolorem cupiditate mollitia corporis exercitationem adipisci numquam, doloremque voluptas unde natus minima. Aliquid vel provident nulla repellendus ullam architecto, non reprehenderit libero perspiciatis nostrum, quidem illo quam est optio eveniet officiis. Dolor ab ducimus officiis. Eos vero eligendi doloremque qui porro? Explicabo.
+        </p>
+        <p class="text">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere voluptates minima velit blanditiis commodi esse corporis porro accusamus alias amet! Vel temporibus id sed similique rerum laborum iste dolore iusto accusantium beatae ex recusandae eum totam corrupti vero consequatur itaque, tempora minus eligendi tempore illo nobis voluptate. Necessitatibus eligendi porro nisi accusantium velit assumenda debitis id voluptatibus vitae dolorem cupiditate mollitia corporis exercitationem adipisci numquam, doloremque voluptas unde natus minima. Aliquid vel provident nulla repellendus ullam architecto, non reprehenderit libero perspiciatis nostrum, quidem illo quam est optio eveniet officiis. Dolor ab ducimus officiis. Eos vero eligendi doloremque qui porro? Explicabo.
+            </p>
+            <p class="text">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere voluptates minima velit blanditiis commodi esse corporis porro accusamus alias amet! Vel temporibus id sed similique rerum laborum iste dolore iusto accusantium beatae ex recusandae eum totam corrupti vero consequatur itaque, tempora minus eligendi tempore illo nobis voluptate. Necessitatibus eligendi porro nisi accusantium velit assumenda debitis id voluptatibus vitae dolorem cupiditate mollitia corporis exercitationem adipisci numquam, doloremque voluptas unde natus minima. Aliquid vel provident nulla repellendus ullam architecto, non reprehenderit libero perspiciatis nostrum, quidem illo quam est optio eveniet officiis. Dolor ab ducimus officiis. Eos vero eligendi doloremque qui porro? Explicabo.
+                </p>
+                <p class="text">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere voluptates minima velit blanditiis commodi esse corporis porro accusamus alias amet! Vel temporibus id sed similique rerum laborum iste dolore iusto accusantium beatae ex recusandae eum totam corrupti vero consequatur itaque, tempora minus eligendi tempore illo nobis voluptate. Necessitatibus eligendi porro nisi accusantium velit assumenda debitis id voluptatibus vitae dolorem cupiditate mollitia corporis exercitationem adipisci numquam, doloremque voluptas unde natus minima. Aliquid vel provident nulla repellendus ullam architecto, non reprehenderit libero perspiciatis nostrum, quidem illo quam est optio eveniet officiis. Dolor ab ducimus officiis. Eos vero eligendi doloremque qui porro? Explicabo.
+                    </p>
+                    <p class="text">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere voluptates minima velit blanditiis commodi esse corporis porro accusamus alias amet! Vel temporibus id sed similique rerum laborum iste dolore iusto accusantium beatae ex recusandae eum totam corrupti vero consequatur itaque, tempora minus eligendi tempore illo nobis voluptate. Necessitatibus eligendi porro nisi accusantium velit assumenda debitis id voluptatibus vitae dolorem cupiditate mollitia corporis exercitationem adipisci numquam, doloremque voluptas unde natus minima. Aliquid vel provident nulla repellendus ullam architecto, non reprehenderit libero perspiciatis nostrum, quidem illo quam est optio eveniet officiis. Dolor ab ducimus officiis. Eos vero eligendi doloremque qui porro? Explicabo.
+                        </p>
+                        <p class="text">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere voluptates minima velit blanditiis commodi esse corporis porro accusamus alias amet! Vel temporibus id sed similique rerum laborum iste dolore iusto accusantium beatae ex recusandae eum totam corrupti vero consequatur itaque, tempora minus eligendi tempore illo nobis voluptate. Necessitatibus eligendi porro nisi accusantium velit assumenda debitis id voluptatibus vitae dolorem cupiditate mollitia corporis exercitationem adipisci numquam, doloremque voluptas unde natus minima. Aliquid vel provident nulla repellendus ullam architecto, non reprehenderit libero perspiciatis nostrum, quidem illo quam est optio eveniet officiis. Dolor ab ducimus officiis. Eos vero eligendi doloremque qui porro? Explicabo.
+                            </p>
+
+
+        </div>
+
+        <script>
+            const topEl = document.querySelector('.head-container');
+            const bottomEl=document.querySelector('.container');
+
+            console.log(topEl.offsetHeight);
+            console.log(bottomEl.offsetTop);
+            
+            
+
+            window.addEventListener('scroll', () => {
+          if(window.scrollY>bottomEl.offsetTop-topEl.offsetHeight-30){
+            topEl.classList.add('active');
+
+          }else{
+            topEl.classList.remove('active');
+          }
+              
+        });
+             </script>
+    
+</body>
+</html>

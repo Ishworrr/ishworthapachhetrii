@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drum Kit</title>
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+     integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
+    crossorigin="anonymous"
+     referrerpolicy="no-referrer" />  
+     <style>
+        body{
+            margin:0;
+display:flex;
+flex-direction: column;
+background-color: aquamarine;
+background-attachment: fixed;
+align-items: center;
+height: 100vh;
+justify-content: center;
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        h1{
+            font-size: 50px;
+            letter-spacing: 6px;
+            text-shadow:2px 4px 8px rgba(255,0,0,.9);
+            white-space:nowrap;
+
+        }
+        .container{
+            text-align: center;
+        }
+
+        .btn{
+            padding:30px 50px;
+            border:none;
+            background-color: aliceblue;
+            margin: 10px;
+            font-size: 40px;
+            min-width: 200px;
+            box-sizing: border-box;
+            box-shadow: 1px 2px 8px rgba(255,0,0,.9);
+            background-image: url('./images/crash.png');
+            border-radius: 10px;
+            cursor: pointer;
+            text-transform: capitalize;
+
+        }
+
+        .btn:hover{
+            color:red;
+           
+        }
+        .btn:active{
+            color:red;
+            background-size: 105%;
+        }
+     </style>
+</head>
+<body>
+    <h1>Drum Kit <i class="fa-solid fa-drum"></i></h1>
+    <div class="container">
+        
+        
+        </div>
+
+    <script> 
+const kits=['crash', 'kick', 'snare','drum'];
+const containerEl=document.querySelector('.container');
+
+kits.forEach((kit) =>{
+    const btnEl = document.createElement("button");
+  btnEl.classList.add("btn");
+    btnEl.innerText = kit;
+containerEl.appendChild(btnEl);
+const audioEl = document.createElement("audio");
+containerEl.appendChild(audioEl);
+audioEl.src=`./sounds/${kit}.mp3`;
+btnEl.style.backgroundImage='url(./images/'+kit+'.png)';
+//btnEl.style.backgroundImage='url(' + "./images/"+ kit + ".png" + ')';
+//btnEl.style.backgroundImage='url(./images/'+ kit + '.png )';
+btnEl.addEventListener('click',()=>{
+    audioEl.play();
+});
+window.addEventListener('keydown',(e)=>{
+    if(e.key === kit.slice(0,1)){
+        audioEl.play();
+        btnEl.style.transform='scale(.9)';
+        setTimeout(() => {
+            btnEl.style.transform='scale(1)';
+        }, 100);
+    }
+
+})
+
+})
+        </script>
+   
+
+</body>
+</html>
